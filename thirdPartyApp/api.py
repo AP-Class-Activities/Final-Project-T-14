@@ -1,15 +1,7 @@
 class Person:
-    def __init__(self, username, fName, lName, email, password, phone, address):
-        self.__username = username
-        self.__first_name = fName
-        self.__last_name = lName
+    def __init__(self, name, email):
+        self.__name = name
         self.__email = email
-        self.__password = password
-        self.__phone = phone
-        self.__address = address
 
-    def inc(self):
+    def id(self):
         pass
-
-    
-    
