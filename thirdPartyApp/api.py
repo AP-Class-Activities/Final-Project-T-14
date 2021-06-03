@@ -6,8 +6,12 @@ class Person:
     def id(self):
         pass
 class customer(Person):
-    def __init__(self,card,basket,username)
+    def __init__(self,card,basket,username):
         self.card = card
         self.basket = basket
-    
-class ddd:
+
+
+
+class new:
+    def __init__(self, name):
+        self.__name = name
