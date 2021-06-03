@@ -8,8 +8,15 @@ class Person:
         self.__phone = phone
         self.__address = address
 
+<<<<<<< HEAD
     @property
     def uName(self):
         return self.__username
 class coustomer:
+=======
+    def inc(self):
+        pass
+
+    
+>>>>>>> 5974b912d8aa055a3610b326db0126c728228db0
     
