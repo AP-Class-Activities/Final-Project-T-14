@@ -12,5 +12,4 @@ class Person:
     def uName(self):
         return self.__username
 class coustomer:
-    def __init__
     
