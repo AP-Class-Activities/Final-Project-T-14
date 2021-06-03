@@ -7,3 +7,4 @@ class Person:
         pass
 class customer(Person):
     def __init__()
+class ddd:
