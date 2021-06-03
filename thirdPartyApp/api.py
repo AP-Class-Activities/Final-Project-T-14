@@ -8,8 +8,5 @@ class Person:
         self.__phone = phone
         self.__address = address
 
-    @property
-    def uName(self):
-        return self.__username
-
+    
     
