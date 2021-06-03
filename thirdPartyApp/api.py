@@ -8,5 +8,8 @@ class Person:
         self.__phone = phone
         self.__address = address
 
+    def inc(self):
+        pass
+
     
     
