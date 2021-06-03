@@ -5,3 +5,5 @@ class Person:
 
     def id(self):
         pass
+class customer(Person):
+    def __init__()
