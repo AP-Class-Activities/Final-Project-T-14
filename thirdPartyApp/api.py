@@ -15,3 +15,8 @@ class customer(Person):
 class new:
     def __init__(self, name):
         self.__name = name
+
+
+class RMB:
+    def __init__(self) -> None:
+        pass
