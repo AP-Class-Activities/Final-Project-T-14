@@ -63,7 +63,12 @@ class customer(User):
         self.__basket = basket
         self.__history = history
         self.__comments = comments
-
+	def buy(self,stuff,price):
+        	if self.card < price:
+        		print('first charge your card')
+        	else:
+         		self.card-=price
+         		history+=stuff
     @property
     def id(self):
         return self.__id
