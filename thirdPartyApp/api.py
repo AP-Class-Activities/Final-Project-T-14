@@ -56,19 +56,14 @@ class User:
 """ Customer Inheritance class """ # ===================================
 
 class customer(User):
-    def __init__(self, id_customer, username, card, basket, history, comments):
+    def __init__(self, id_customer, username, card, basket, history, distance):
         self.__id = id_customer
         self.__username = username
         self.__card = card
         self.__basket = basket
         self.__history = history
-        self.__comments = comments
-	def buy(self,stuff,price):
-        	if self.card < price:
-        		print('first charge your card')
-        	else:
-         		self.card-=price
-         		history+=stuff
+        self.__distance = distance
+
     @property
     def id(self):
         return self.__id
@@ -117,6 +112,14 @@ class customer(User):
     def comments(self, value):
         self.__comments = value
 
+    @property
+    def distance(self):
+        return self.__distance
+
+    @distance.setter
+    def distance(self, value):
+        self.__distance = value
+
     def __str__(self):
         return self.__username + "( " + self.__first_name + " " + self.__last_name + " )"
 
@@ -131,9 +134,40 @@ class customer(User):
 # ================================================================
 """ stuff Inheritance class """ # ================================
 
+class stuff:
+    def __init__(self, stuff_id, s_id, name, price, specification):
+        self.__stuff_id = stuff_id
+        self.__s_id = s_id
+        self.__name = name
+        self.__price = price
+        self.__specification = specification
 
+    @property
+    def stuffId(self):
+        return self.__stuff_id
+
+    @stuffId.setter
+    def stuffId(self, value):
+        self.__stuff_id = value
+
+    @property
+    def sellerId(self):
+        return self.__s_id
+
+    @sellerId.setter
+    def sellerId(self, value):
+        self.__s_id = value
+
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, value):
+        self.__name = value
 
 
 
 
 # =================================================================
+
