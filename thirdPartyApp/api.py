@@ -80,7 +80,7 @@ class customer(User):
         self.__username = username
 
         if card <= 0:
-            raise ValueError("Charge your card first, please!")
+            ValueError("Charge your card first, please!")
         self.__card = card
 
         self.__basket = basket
