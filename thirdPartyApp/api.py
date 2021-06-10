@@ -4,6 +4,7 @@ class User:
     def __init__(self, fName, lName, phone, email, password):
         self.__first_name = fName
         self.__last_name = lName
+
         if len(phone) < 10:
             raise ValueError("Wrong number!")
         elif phone[0:3] != "+98":
@@ -14,6 +15,7 @@ class User:
             else:
                 raise ValueError("Wrong number!")
         self.__phone_numer = phone
+
         self.__email = email
         self.__password = password
 
@@ -69,7 +71,6 @@ class User:
     def __str__(self) -> str:
         return self.__first_name + " " + self.__last_name
 
-
 # ======================================================================
 """ Customer Inheritance class """ # ===================================
 
@@ -77,7 +78,11 @@ class customer(User):
     def __init__(self, id_customer, username, card, basket, history, distance):
         self.__id = id_customer
         self.__username = username
+
+        if card <= 0:
+            raise ValueError("Charge your card first, please!")
         self.__card = card
+
         self.__basket = basket
         self.__history = history
         self.__distance = distance  # """ fasel anbar ta moshtari """
@@ -104,8 +109,8 @@ class customer(User):
 
     @card.setter
     def card(self, value):
-        if value < 0:
-            ValueError("")
+        if value <= 0:
+            ValueError("Charge your card first, please!")
         else:
             self.__card = value
 
@@ -140,6 +145,24 @@ class customer(User):
     @distance.setter
     def distance(self, value):
         self.__distance = value
+
+    def customer_id():
+        id = "CU000000" # It will be changed!
+        m = str(int(id[2:]) + 1)
+        f = ""
+        if len(m) == 1:
+            f = "CU00000" + m
+        elif len(m) == 2:
+            f = "CU0000" + m
+        elif len(m) == 3:
+            f = "CU000" + m
+        elif len(m) == 4:
+            f = "CU00" + m
+        elif len(m) == 5:
+            f = "CU0" + m
+        else:
+            f = "CU" + m
+        return f
 
     def __str__(self):
         return self.__username + "( " + self.__first_name + " " + self.__last_name + " )"
@@ -230,6 +253,24 @@ class seller(User):
             print("suspension should be True or False")
         else:
             self.__suspension = value
+
+    def seller_id():
+        id = "SL000000" # It will be changed!
+        m = str(int(id[2:]) + 1)
+        f = ""
+        if len(m) == 1:
+            f = "SL00000" + m
+        elif len(m) == 2:
+            f = "SL0000" + m
+        elif len(m) == 3:
+            f = "SL000" + m
+        elif len(m) == 4:
+            f = "SL00" + m
+        elif len(m) == 5:
+            f = "SL0" + m
+        else:
+            f = "SL" + m
+        return f
     
     def __str__(self):
         return "seller--> (%s)"%(super(seller,self).__str__())
@@ -240,7 +281,7 @@ class seller(User):
 class stuff:
     def __init__(self, stuff_id, s_id, name, price, specification):
         self.__stuff_id = stuff_id
-        self.__s_id = s_id
+        self.__s_id = s_id 
         self.__name = name
         self.__price = price
         self.__specification = specification
@@ -284,6 +325,27 @@ class stuff:
     @specification.setter
     def specification(self, value):
         self.__specification = value
+
+    def seller_id():
+        id = "PR000000" # It will be changed!
+        m = str(int(id[2:]) + 1)
+        f = ""
+        if len(m) == 1:
+            f = "PR00000" + m
+        elif len(m) == 2:
+            f = "PR0000" + m
+        elif len(m) == 3:
+            f = "PR000" + m
+        elif len(m) == 4:
+            f = "PR00" + m
+        elif len(m) == 5:
+            f = "PR0" + m
+        else:
+            f = "PR" + m
+        return f
+
+    def __str__(self):
+        return self.__name
 
 # =================================================================
 
