@@ -4,6 +4,15 @@ class User:
     def __init__(self, fName, lName, phone, email, password):
         self.__first_name = fName
         self.__last_name = lName
+        if len(phone) < 10:
+            raise ValueError("Wrong number!")
+        elif phone[0:3] != "+98":
+            if phone[0] == "0":
+                phone = "+98" + phone[1:]
+            elif phone[0] != "0":
+                phone = "+98" + phone
+            else:
+                raise ValueError("Wrong number!")
         self.__phone_numer = phone
         self.__email = email
         self.__password = password
@@ -30,6 +39,15 @@ class User:
 
     @phone.setter
     def phone(self, value):
+        if len(value) < 10:
+            raise ValueError("Wrong number!")
+        elif value[0:3] != "+98":
+            if value[0] == "0":
+                value = "+98" + value[1:]
+            elif value[0] != "0":
+                value = "+98" + value
+        else:
+            raise ValueError("Wrong number!")
         self.__phone_numer = value
 
     @property
@@ -179,7 +197,7 @@ class seller(User):
     @sell_counter.setter
     def sell_counter(self, value):
         if value < 0:
-            print("sell_counter should be positive")
+            raise ValueError("sell_counter should be positive")
         else:
             self.__sell_counter = value
     
