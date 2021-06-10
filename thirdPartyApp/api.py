@@ -110,7 +110,7 @@ class customer(User):
     @card.setter
     def card(self, value):
         if value <= 0:
-            ValueError("Charge your card first, please!")
+            raise ValueError("Charge your card first, please!")
         else:
             self.__card = value
 
