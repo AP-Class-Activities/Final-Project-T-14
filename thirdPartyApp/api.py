@@ -75,16 +75,17 @@ class User:
 """ Customer Inheritance class """ # ===================================
 
 class customer(User):
-    def __init__(self, id_customer, username, card, basket, history, distance):
-        self.__id = id_customer
+    def __init__(self, id_customer, username, wallet, basket, favorite, history, distance):
+        self.__id = self.customer_id
         self.__username = username
 
-        if card <= 0:
+        if wallet <= 0:
             raise ValueError("Charge your card first, please!")
-        self.__card = card
+        self.__wallet = 0
 
-        self.__basket = basket
-        self.__history = history
+        self.__basket = []
+        self.__favorite = []
+        self.__history = []
         self.__distance = distance  # """ fasel anbar ta moshtari """
 
     @property
@@ -171,15 +172,15 @@ class customer(User):
 """ Seller Inheritance class """ # ===============================
 
 class seller(User):
-    def __init__(self, id_seller, address, offer_list, income, sell_counter, cost, distance, suspension):
-        self.__id = id_seller
+    def __init__(self, id_seller, address, point, offer_list, income, sell_counter, cost, distance, suspension):
+        self.__id = self.seller_id
         self.__address = address
-        self.__offer_list = offer_list
-        self.__income = income
-        self.__sell_counter = sell_counter
-        self.__cost = cost
-        self.__distance = distance  # """ fasel foroshande ta anbar """
-        self.__suspension = suspension
+        self.point = 0
+        self.__offer_list = []
+        self.__income = 0
+        self.__sell_counter = 0
+        self.__distance = distance  # """ fasele foroshande ta anbar """
+        self.__suspension = False
         
     @property
     def id(self):
