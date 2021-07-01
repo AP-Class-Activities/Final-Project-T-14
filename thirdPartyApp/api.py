@@ -75,9 +75,10 @@ class User:
 """ Customer Inheritance class """ # ===================================
 
 class customer(User):
-    def __init__(self, id_customer, username, wallet, basket, favorite, history, distance):
+    def __init__(self, id_customer, username, address, wallet, basket, favorite, history, distance):
         self.__id = self.customer_id
         self.__username = username
+        self.__address = address
 
         if wallet <= 0:
             raise ValueError("Charge your card first, please!")
@@ -176,9 +177,9 @@ class seller(User):
         self.__id = self.seller_id
         self.__address = address
         self.point = 0
-        self.__offer_list = []
         self.__income = 0
         self.__sell_counter = 0
+        self.__offer_list = []
         self.__distance = distance  # """ fasele foroshande ta anbar """
         self.__suspension = False
         
@@ -280,13 +281,14 @@ class seller(User):
 """ stuff Inheritance class """ # ================================
 
 class stuff:
-    def __init__(self, stuff_id, s_id, group_type, name, price, specification):
+    def __init__(self, stuff_id, s_id, group_type, name, price, specification, opinion):
         self.__stuff_id = self.stuff_id
         self.__s_id = s_id
         self.__group_type = group_type
         self.__name = name
         self.__price = price
         self.__specification = specification
+        self.__opinion = opinion
 
     @property
     def stuffId(self):
