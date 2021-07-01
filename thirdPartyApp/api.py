@@ -280,9 +280,10 @@ class seller(User):
 """ stuff Inheritance class """ # ================================
 
 class stuff:
-    def __init__(self, stuff_id, s_id, name, price, specification):
-        self.__stuff_id = stuff_id
-        self.__s_id = s_id 
+    def __init__(self, stuff_id, s_id, group_type, name, price, specification):
+        self.__stuff_id = self.stuff_id
+        self.__s_id = s_id
+        self.__group_type = group_type
         self.__name = name
         self.__price = price
         self.__specification = specification
@@ -302,6 +303,14 @@ class stuff:
     @sellerId.setter
     def sellerId(self, value):
         self.__s_id = value
+
+    @property
+    def group_type(self):
+        return self.group_type
+
+    @group_type.setter
+    def name(self, value):
+        self.group_type = value
 
     @property
     def name(self):
@@ -327,7 +336,7 @@ class stuff:
     def specification(self, value):
         self.__specification = value
 
-    def seller_id():
+    def stuff_id():
         id = "PR000000" # It will be changed!
         m = str(int(id[2:]) + 1)
         f = ""
