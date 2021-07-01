@@ -163,6 +163,7 @@ class Ui_Form(object):
         font.setWeight(75)
         self.pushButton.setFont(font)
         self.pushButton.setObjectName("pushButton")
+        self.pushButton.clicked.connect(self.save_data)
         self.label_11 = QtWidgets.QLabel(Form)
         self.label_11.setGeometry(QtCore.QRect(260, 330, 31, 31))
         font = QtGui.QFont()
@@ -231,6 +232,36 @@ class Ui_Form(object):
         self.label_11.setText(_translate("Form", "KMs"))
         self.label_10.setText(_translate("Form", "Username"))
 
+    def save_data(self):
+        f = open('dataBase/cu_dataBase.txt', 'a+')
+
+        f.write('\n' + Ui_Form.customer_id() + ' ' + self.lineEdit.text() + ' ' + self.lineEdit_2.text() + ' ' + 
+        self.lineEdit_3.text() + ' ' + self.lineEdit_4.text() + ' ' + self.lineEdit_5.text() + ' ' +
+        self.lineEdit_8.text() + ' ' + self.lineEdit_6.text().replace(' ', '_') + ' ' +
+        '0' + ' ' + '[]' + ' ' + '[]' + ' ' + '[]' + ' ' + self.lineEdit_7.text())
+        
+        f.close()
+        QtWidgets.qApp.closeAllWindows()
+        
+        print('successful')
+
+    def customer_id():
+        id = "CU000000" # It will be changed!
+        m = str(int(id[2:]) + 1)
+        f = ""
+        if len(m) == 1:
+            f = "CU00000" + m
+        elif len(m) == 2:
+            f = "CU0000" + m
+        elif len(m) == 3:
+            f = "CU000" + m
+        elif len(m) == 4:
+            f = "CU00" + m
+        elif len(m) == 5:
+            f = "CU0" + m
+        else:
+            f = "CU" + m
+        return f
 
 if __name__ == "__main__":
     import sys

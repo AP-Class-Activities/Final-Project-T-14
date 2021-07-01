@@ -10,7 +10,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -163,6 +162,7 @@ class Ui_Form(object):
         font.setWeight(75)
         self.pushButton.setFont(font)
         self.pushButton.setObjectName("pushButton")
+        self.pushButton.clicked.connect(self.save_data)
         self.label_11 = QtWidgets.QLabel(Form)
         self.label_11.setGeometry(QtCore.QRect(260, 330, 71, 31))
         font = QtGui.QFont()
@@ -210,6 +210,36 @@ class Ui_Form(object):
         self.label_9.setText(_translate("Form", "Distance"))
         self.pushButton.setText(_translate("Form", "Confirm Your Information"))
         self.label_11.setText(_translate("Form", "KMs"))
+
+    def save_data(self):
+        f = open('dataBase/sl_dataBase.txt', 'a+')
+
+        f.write('\n' + Ui_Form.seller_id() + ' ' + self.lineEdit.text() + ' ' + self.lineEdit_2.text() + ' ' + 
+        self.lineEdit_3.text() + ' ' + self.lineEdit_4.text() + ' ' + self.lineEdit_5.text() + ' ' + self.lineEdit_6.text().replace(' ', '_') + ' ' 
+        + '0' + ' ' + '0' + ' ' + '0' + ' ' + '[]' + ' ' + self.lineEdit_7.text() + ' ' + 'False')
+        
+        f.close()
+        QtWidgets.qApp.closeAllWindows()
+        
+        print('successful')
+
+    def seller_id():
+        id = "SL000001" # It will be changed!
+        m = str(int(id[2:]) + 1)
+        f = ""
+        if len(m) == 1:
+            f = "SL00000" + m
+        elif len(m) == 2:
+            f = "SL0000" + m
+        elif len(m) == 3:
+            f = "SL000" + m
+        elif len(m) == 4:
+            f = "SL00" + m
+        elif len(m) == 5:
+            f = "SL0" + m
+        else:
+            f = "SL" + m
+        return f
 
 
 if __name__ == "__main__":

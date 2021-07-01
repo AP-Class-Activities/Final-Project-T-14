@@ -75,7 +75,7 @@ class User:
 """ Customer Inheritance class """ # ===================================
 
 class customer(User):
-    def __init__(self, id_customer, username, address, wallet, basket, favorite, history, distance):
+    def __init__(self, username, address, wallet, basket, favorite, history, distance):
         self.__id = self.customer_id
         self.__username = username
         self.__address = address
@@ -94,8 +94,16 @@ class customer(User):
         return self.__id
 
     @id.setter
-    def id(self, value):
+    def address(self, value):
         self.__id = value
+
+    @property
+    def id(self):
+        return self.__address
+
+    @id.setter
+    def address(self, value):
+        self.__address = value
 
     @property
     def uname(self):
@@ -173,10 +181,10 @@ class customer(User):
 """ Seller Inheritance class """ # ===============================
 
 class seller(User):
-    def __init__(self, id_seller, address, point, offer_list, income, sell_counter, cost, distance, suspension):
+    def __init__(self, address, point, offer_list, income, sell_counter, cost, distance, suspension):
         self.__id = self.seller_id
         self.__address = address
-        self.point = 0
+        self.__point = 0
         self.__income = 0
         self.__sell_counter = 0
         self.__offer_list = []
@@ -190,7 +198,15 @@ class seller(User):
     @id.setter
     def id(self, value):
         self.__id = value
-        
+
+    @property
+    def point(self):
+        return self.__point
+
+    @point.setter
+    def point(self, value):
+        self.__point = value
+    
     @property
     def address(self):
         return self.__address
@@ -281,7 +297,7 @@ class seller(User):
 """ stuff Inheritance class """ # ================================
 
 class stuff:
-    def __init__(self, stuff_id, s_id, group_type, name, price, specification, opinion):
+    def __init__(self, s_id, group_type, name, price, specification, opinion):
         self.__stuff_id = self.stuff_id
         self.__s_id = s_id
         self.__group_type = group_type
