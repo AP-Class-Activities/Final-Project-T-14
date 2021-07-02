@@ -9,9 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from api import seller
 
-class Ui_Form(object):
+class ui_customer(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.setWindowModality(QtCore.Qt.WindowModal)
@@ -235,7 +234,7 @@ class Ui_Form(object):
     def save_data(self):
         f = open('dataBase/cu_dataBase.txt', mode='a+', encoding='utf-8')
 
-        f.write('\n' + Ui_Form.customer_id() + ' ' + self.lineEdit.text() + ' ' + self.lineEdit_2.text() + ' ' + 
+        f.write('\n' + ui_customer.customer_id() + ' ' + self.lineEdit.text() + ' ' + self.lineEdit_2.text() + ' ' + 
         self.lineEdit_3.text() + ' ' + self.lineEdit_4.text() + ' ' + self.lineEdit_5.text() + ' ' +
         self.lineEdit_8.text() + ' ' + self.lineEdit_6.text().replace(' ', '_') + ' ' +
         '0' + ' ' + '[]' + ' ' + '[]' + ' ' + '[]' + ' ' + self.lineEdit_7.text())
@@ -292,7 +291,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
-    ui = Ui_Form()
+    ui = ui_customer()
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
