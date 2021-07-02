@@ -1,2 +1,12 @@
-PR000001 SL000001 Books Golestane_Sadie 2100 dont_need cu000002_kheyli_alie_vali_be_dardam_nmikohre_alan
-PR000002 SL000001 Clothes Shalvar 60000 cuttopn,_greate_metal CU000001_kheyli_khoobe
+PR000001 SL000001 Books Golestane_Sadie 12000 dont_need cu000002_kheyli_alie_vali_be_dardam_nmikohre_alan
+PR000002 SL000002 Books Divane_Hafez 11000
+PR000003 SL000003 Books Shahname_Ferdousi 15000 non non
+PR000004 SL000004 Clothes Pirahan 35000 made_in_Iran non
+PR000005 SL000005 Clothes Shalvar 40000 cuttopn,_greate_metal CU000001_kheyli_khoobe
+PR000006 SL000006 Clothes Kolah 6000 cap non
+PR000007 SL000007 Digital LG_smartphone 100000 zedde_ab non
+PR000008 SL000008 Digital Asus_laptop 250000 gaming non
+PR000009 SL000009 Digital Apple_watch 85000 zedde_ab non
+PR0000010 SL0000010 Sports Boxing_gloves 13000 just_buy non
+PR0000011 SL0000011 Sports Baseball_bat 20000 unbrokable non
+PR0000012 SL0000012 Sports Chess 9000 ye_its_sport non
