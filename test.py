@@ -1,25 +1,98 @@
-t = open('trash2.txt', mode='r', encoding='utf-8')
-u = t.readlines()
-t.close()
+import sys
+from PyQt5 import QtCore, QtWidgets
 
-print(u)
 
-new_u = []
-for i in range(0, len(u)):
-    if '\n' in u[i]:
-        new_u.append(u[i].replace('\n', ''))
-        if 'CU' in new_u[i]:
-            l_id = new_u[i]
-print(l_id)
-print(new_u)
+class MainWindow(QtWidgets.QWidget):
 
-newL_id = 'CU00000' + str(int(l_id[2:]) + 1)
-new_u.remove(l_id)
-new_u.append(newL_id)
-print('***************')
-print(new_u)
+    switch_window = QtCore.pyqtSignal(str)
 
-with open('trash2.txt', 'w+') as f:
-    for item in new_u:
-        f.write("%s\n" % item)
-    f.close()
+    def __init__(self):
+        QtWidgets.QWidget.__init__(self)
+        self.setWindowTitle('Main Window')
+
+        layout = QtWidgets.QGridLayout()
+
+        self.line_edit = QtWidgets.QLineEdit()
+        layout.addWidget(self.line_edit)
+
+        self.button = QtWidgets.QPushButton('Switch Window')
+        self.button.clicked.connect(self.switch)
+        layout.addWidget(self.button)
+
+        self.setLayout(layout)
+
+    def switch(self):
+        self.switch_window.emit(self.line_edit.text())
+
+
+class WindowTwo(QtWidgets.QWidget):
+
+    def __init__(self, text):
+        QtWidgets.QWidget.__init__(self)
+        self.setWindowTitle('Window Two')
+
+        layout = QtWidgets.QGridLayout()
+
+        self.label = QtWidgets.QLabel(text)
+        layout.addWidget(self.label)
+
+        self.button = QtWidgets.QPushButton('Close')
+        self.button.clicked.connect(self.close)
+
+        layout.addWidget(self.button)
+
+        self.setLayout(layout)
+
+
+class Login(QtWidgets.QWidget):
+
+    switch_window = QtCore.pyqtSignal()
+
+    def __init__(self):
+        QtWidgets.QWidget.__init__(self)
+        self.setWindowTitle('Login')
+
+        layout = QtWidgets.QGridLayout()
+
+        self.button = QtWidgets.QPushButton('Login')
+        self.button.clicked.connect(self.login)
+
+        layout.addWidget(self.button)
+
+        self.setLayout(layout)
+
+    def login(self):
+        self.switch_window.emit()
+
+
+class Controller:
+
+    def __init__(self):
+        pass
+
+    def show_login(self):
+        self.login = Login()
+        self.login.switch_window.connect(self.show_main)
+        self.login.show()
+
+    def show_main(self):
+        self.window = MainWindow()
+        self.window.switch_window.connect(self.show_window_two)
+        self.login.close()
+        self.window.show()
+
+    def show_window_two(self, text):
+        self.window_two = WindowTwo(text)
+        self.window.close()
+        self.window_two.show()
+
+
+def main():
+    app = QtWidgets.QApplication(sys.argv)
+    controller = Controller()
+    controller.show_login()
+    sys.exit(app.exec_())
+
+
+if __name__ == '__main__':
+    main()
