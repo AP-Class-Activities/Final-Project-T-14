@@ -1,1 +1,2 @@
-SL000001 Isac Alavi +989022222222 Alavi.info@gmail.com 6789 Rasht 0 0 0 [] 50 Falsez
+SL000001 Isac Alavi +989022222222 Alavi.info@gmail.com 6789 Rasht 0 0 0 [] 50 False
+SL000002 Mojtaba KS +989026738403 MK.info@gmail.com 88746689 Guilan_Rasht 0 0 0 [] 30 False

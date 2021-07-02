@@ -297,10 +297,11 @@ class seller(User):
 """ stuff Inheritance class """ # ================================
 
 class stuff:
-    def __init__(self, s_id, group_type, name, price, specification, opinion):
+    def __init__(self, s_id, img_dir, group_type, name, price, specification, opinion):
         self.__stuff_id = self.stuff_id
         self.__s_id = s_id
         self.__group_type = group_type
+        self.__image = img_dir
         self.__name = name
         self.__price = price
         self.__specification = specification
