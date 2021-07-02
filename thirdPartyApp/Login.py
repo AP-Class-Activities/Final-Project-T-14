@@ -34,7 +34,7 @@ class Ui_Dialog(object):
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(Dialog)
-        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(20, 220, 561, 141))
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(20, 220, 561, 171))
         self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -52,29 +52,43 @@ class Ui_Dialog(object):
         self.passline.setObjectName("passline")
         self.verticalLayout_2.addWidget(self.passline)
         self.enter = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.enter.setFont(font)
         self.enter.setStyleSheet("background-color: rgb(0, 0, 0);\n"
 "color: rgb(255, 255, 255);")
         self.enter.setObjectName("enter")
         self.verticalLayout_2.addWidget(self.enter)
-
-        self.enter.clicked.connect(self.loginaccount) #enter signal
+        self.success = QtWidgets.QLabel(self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.success.setFont(font)
+        self.success.setAlignment(QtCore.Qt.AlignCenter)
+        self.success.setObjectName("success")
+        self.verticalLayout_2.addWidget(self.success)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
-    mark= False
+
+        self.enter.clicked.connect(self.loginaccount)
+
+    mark = False
+
     def loginaccount(self):
         username = self.userline.text()
         password = self.passline.text()
-        user = open("database.txt","r")
+        user = open("database.txt", "r")
         user = user.readlines()
-        user = [u.replace('\n','').split() for u in users]
+        user = [u.replace('\n', '').split() for u in users]
         for i in range(len(user)):
-            if username== user[i][0] and password== user[i][1]:
-                mark= True
+            if username == user[i][0] and password == user[i][1]:
+                mark = True
                 print("success")
-        if mark==False:
+        if mark == False:
             print('username or password invalid!')
-
 
 
     def retranslateUi(self, Dialog):
@@ -82,6 +96,7 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.label.setText(_translate("Dialog", "Login to your account"))
         self.enter.setText(_translate("Dialog", "Enter"))
+        self.success.setText(_translate("Dialog", "login was successful"))
 
 
 if __name__ == "__main__":
