@@ -319,7 +319,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Online Shop (T-14)"))
         self.label_5.setText(_translate("Dialog", "Password :"))
         self.label_4.setText(_translate("Dialog", "Username :"))
         self.gmail.setText(_translate("Dialog", "TextLabel"))

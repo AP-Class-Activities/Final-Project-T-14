@@ -18,7 +18,7 @@ class Ui_Form(object):
         Form.resize(589, 559)
         Form.setMaximumSize(QtCore.QSize(1280, 768))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../Downloads/icons8-registration-60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("icons/registration.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Form.setWindowIcon(icon)
         Form.setStyleSheet("")
         self.label = QtWidgets.QLabel(Form)
