@@ -108,7 +108,7 @@ class Ui_Dialog(object):
 
         def open_cLogin_window(self):
                 self.window = QtWidgets.QMainWindow()
-                self.ui = c_login.ui_login()
+                self.ui = c_login.ui_clogin()
                 self.ui.setupUi(self.window)
                 self.window.show()
 
