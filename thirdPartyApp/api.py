@@ -305,7 +305,7 @@ class stuff:
         self.__name = name
         self.__price = price
         self.__specification = specification
-        self.__opinion = opinion
+        self.__opinion = []
 
     @property
     def stuffId(self):
