@@ -18,7 +18,7 @@ class Ui_Form(object):
         Form.resize(589, 559)
         Form.setMaximumSize(QtCore.QSize(1280, 768))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../Downloads/icons8-registration-60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("icons/registration.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Form.setWindowIcon(icon)
         Form.setStyleSheet("")
         self.label = QtWidgets.QLabel(Form)
@@ -212,7 +212,7 @@ class Ui_Form(object):
         self.label_11.setText(_translate("Form", "KMs"))
 
     def save_data(self):
-        f = open('dataBase/sl_dataBase.txt', 'a+')
+        f = open('dataBase/sl_dataBase.txt', mode='a+', encoding='utf-8')
 
         f.write('\n' + Ui_Form.seller_id() + ' ' + self.lineEdit.text() + ' ' + self.lineEdit_2.text() + ' ' + 
         self.lineEdit_3.text() + ' ' + self.lineEdit_4.text() + ' ' + self.lineEdit_5.text() + ' ' + self.lineEdit_6.text().replace(' ', '_') + ' ' 
@@ -224,22 +224,47 @@ class Ui_Form(object):
         print('successful')
 
     def seller_id():
-        id = "SL000001" # It will be changed!
-        m = str(int(id[2:]) + 1)
-        f = ""
-        if len(m) == 1:
-            f = "SL00000" + m
+        t = open('dataBase/trash.txt', mode='r', encoding='utf-8')
+        u = t.readlines()
+        t.close()
+        
+        new_u = []
+        for i in range(0, len(u)):
+            if '\n' in u[i]:
+                new_u.append(u[i].replace('\n', ''))
+                if 'SL' in new_u[i]:
+                    l_id = new_u[i]
+
+        # print(l_id)
+        # print(new_u)
+
+        p = str(int(l_id[2:]) + 1)
+        f_id = ""
+        if len(p) == 1:
+            f_id = "SL00000" + p
         elif len(m) == 2:
-            f = "SL0000" + m
-        elif len(m) == 3:
-            f = "SL000" + m
-        elif len(m) == 4:
-            f = "SL00" + m
-        elif len(m) == 5:
-            f = "SL0" + m
+            f_id = "SL0000" + p
+        elif len(p) == 3:
+            f_id = "SL000" + p
+        elif len(p) == 4:
+            f_id = "SL00" + p
+        elif len(p) == 5:
+            f_id = "SL0" + p
         else:
-            f = "SL" + m
-        return f
+            f_id = "SL" + p
+
+        # print(f_id)
+
+        new_u.remove(l_id)
+        new_u.append(f_id)
+        # print(new_u)
+
+        with open('dataBase/trash.txt', mode='w+', encoding='utf-8') as f:
+            for item in new_u:
+                f.write("%s\n" % item)
+            f.close()
+
+        return f_id
 
 
 if __name__ == "__main__":
